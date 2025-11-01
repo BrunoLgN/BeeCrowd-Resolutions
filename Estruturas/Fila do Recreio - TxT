@@ -1,0 +1,20 @@
+1548 - Fila do recreio
+
+Extração de dados
+entrada: 
+Int N = qtd casos de teste.
+Int M = qtd alunos.
+ArrayList<Integer> notas = notas. 
+
+saida: 
+para cada caso de teste, imprimir uma linha contendo um inteiro com o numero de alunos 
+que não precisaram trocar de lugar após a fila ser reordenada.
+
+execução:
+1 - Recebe N.
+2 - For casos de teste.
+3 - Recebe M.
+4 - Limpa notas.
+5 - Recebe notas.
+6 - Printa retorno da função compara passando notas e notas após ordenação.
+
