@@ -1,0 +1,91 @@
+-------------------------------------------------------------------------------------------------------------------------
+DESCRIÇÃO
+-------------------------------------------------------------------------------------------------------------------------
+N = numero de vezes jogadas
+a proxima linha contem N inteiros separados por um espaco indicando 
+quantas vezes cada pessoa ganhou,
+se r = 0 maria venceu, se r = 1 joão venceu.
+
+o fim da entrada é indicado por N igual a zero
+
+para cada teste na entrada escrevo "Mary won X times and John won Y times"
+
+-------------------------------------------------------------------------------------------------------------------------
+CÓDIGO
+-------------------------------------------------------------------------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        while (true) {
+            int N = Integer.parseInt(br.readLine());
+
+            if (N == 0) {
+                break;
+            }
+
+            int mary = 0;
+            int john = 0;
+
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            for (int i = 0; i < N; i++) {
+                int r = Integer.parseInt(st.nextToken());
+                if (r == 0) {
+                    mary++;
+                } else {
+                    john++;
+                }
+            }
+
+            System.out.println(
+                "Mary won " + mary + " times and John won " + john + " times"
+            );
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+FLUXO
+-------------------------------------------------------------------------------------------------------------------------
+DENTRO DE LOOP INFINITO LEIO N, CASO N = 0 QUEBRO O LOOP, APÓS INICIALIZO VARIAVEIS MARY E JOHN ZERADOS, PARA INICIAR A CONTAGEM DE PONTOS.
+CRIO NOVA INSTACIA DE STRINGTOKENIZER JA LENDO A PROXIMA LINHA QUE CONTEM TODOS OS RESULTADOS SEPARADOS POR ESPAÇO
+EM LOOP FOR LEIO R PARSEANDO O NEXT TOKEN DO STRINGTOKENIZER.
+SE R = 0 MARY++
+SE R = 1 JOHN++
+PRINTO CONFORME SOLICITADO.
+
+
+
+BuferredReader br = new BuferredReader(new InputStreamRadar(System.in))
+
+while(true){
+
+int N = Integer.parseInt(br.readLine());
+
+  if(N == 0){
+    break;
+  }
+
+  int mary = 0;
+  int john = 0;
+
+  StringTokenizer st = new StringTokenizer(br.readLine());
+
+  for(int i = 0; i < N; i++){
+  int R = Integer.parseInt(st.nextToken());
+  if(R == 0){
+  mary++;
+  } else {
+  john++;
+  }
+
+
+  sysout("Mary won " + mary + " times and John won " + john + " times")
+}
+
