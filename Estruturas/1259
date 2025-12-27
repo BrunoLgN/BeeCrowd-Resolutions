@@ -1,0 +1,68 @@
+beecrowd 1259 — Pares e Ímpares
+
+Descrição:
+Ler uma lista de números, separar entre pares e ímpares, ordenar e imprimir:
+
+Pares → crescente
+
+Ímpares → decrescente
+
+Primeiro os pares, depois os ímpares
+
+Passos usados:
+
+Ler quantidade e valores
+
+Separar em duas listas (ArrayList)
+
+Ordenar pares (normal) e ímpares (reverse)
+
+Imprimir cada lista
+
+Observação:
+Solução focada em treino de lógica.
+Não otimizada — pode ser melhorada futuramente.
+
+////////////////////////////////////////////////////////////////////////////////
+import java.io.IOException;
+import java.util.Scanner; 
+import java.util.Collections;
+import java.util.ArrayList;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+ 
+    	Scanner scanner = new Scanner(System.in);
+        int linhas = scanner.nextInt();
+        scanner.nextLine();
+        ArrayList<Integer> listaPar = new ArrayList<>();
+        ArrayList<Integer> listaImpar = new ArrayList<>();
+
+        
+        for(int i = 0; i < linhas; i++){
+            int num = scanner.nextInt();
+            if(num % 2 == 0){
+                listaPar.add(num);
+            }else{
+                listaImpar.add(num);
+            }
+        }
+        
+        Collections.sort(listaPar);
+        Collections.sort(listaImpar, Collections.reverseOrder());
+
+        for(Integer c : listaPar){
+            System.out.println(c);
+        }
+        
+        for(Integer d : listaImpar){
+            System.out.println(d);
+        }
+        scanner.close();
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+ 
+}
