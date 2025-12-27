@@ -1,0 +1,50 @@
+1551  Frase Completa
+
+Partes importantes: 
+
+HashSet não aceita valores duplicados, logo resolve problema de leitura de caracter unico.
+String frase = sc.nextLine().toLowerCase(); .tolowercase torna tudo minusculo evitando erro de ler A e a.
+
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+ 
+        Scanner sc = new Scanner(System.in);
+        
+        int quantidadeFrases = sc.nextInt();
+        sc.nextLine();
+        
+        for(int i = 0; i < quantidadeFrases; i++){
+            String frase = sc.nextLine().toLowerCase();
+            
+            HashSet<Character> letrasVistas = new HashSet<>();
+            for(char c : frase.toCharArray()){
+                if(c >= 'a' && c <= 'z'){ 
+                    letrasVistas.add(c);                      
+                }
+            }
+            
+            int quantidade = letrasVistas.size();
+
+            if(quantidade == 26){
+                System.out.println("frase completa");
+            } else if(quantidade >= 13){
+                System.out.println("frase quase completa");
+            } else {
+                System.out.println("frase mal elaborada");
+            }
+            
+        }
+        sc.close();
+
+    }
+ 
+}
+
+
+
+
