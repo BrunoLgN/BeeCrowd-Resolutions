@@ -1,0 +1,61 @@
+1536 - Libertadores
+
+recebo quem ganhou a partida no formato M X V, onde M é a quantidade de gols do mandante
+e V a quantidade de gols do visitante, devo analisar esse numeros e primeiro, 
+
+vitoria = 3p
+empate = 1p
+
+se um time tiver duas vitorias e um empate ja determino o vencedor.
+
+se ambos os times tiverem uma vitoria analiso quantidade de gols fora de casa.
+
+se ambos os times tiverem mesma quantidade de gols fora de casa ou dois empates retorno penaltis.
+
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+    
+   Scanner sc = new Scanner(System.in);
+    int C = sc.nextInt();
+    sc.nextLine(); 
+
+    for(int i = 0; i < C; i++){
+
+   
+            String linha1 = sc.nextLine();
+            String[] p1 = linha1.toLowerCase().split("x");   ///// transformo leitura do formato M X V para array de string seprado por x
+            int A_casa = Integer.parseInt(p1[0].trim());  //// transformo itens previamente separados do array em inteiros com os resultados correspondentes.
+            int B_fora = Integer.parseInt(p1[1].trim());
+        
+           
+            String linha2 = sc.nextLine();
+            String[] p2 = linha2.toLowerCase().split("x");
+            int B_casa = Integer.parseInt(p2[0].trim());
+            int A_fora = Integer.parseInt(p2[1].trim());
+        
+            int saldoA = A_casa + A_fora;
+            int saldoB = B_casa + B_fora;
+        
+            if(saldoA > saldoB){
+                System.out.println("Time 1");
+            } else if(saldoB > saldoA){
+                System.out.println("Time 2");
+            } else {
+                if(A_fora > B_fora){
+                    System.out.println("Time 1");
+                } else if(B_fora > A_fora){
+                    System.out.println("Time 2");
+                } else {
+                    System.out.println("Penaltis");
+                }
+            }
+        }
+
+    }
+ 
+}
