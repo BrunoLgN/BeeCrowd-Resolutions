@@ -1,0 +1,55 @@
+1253 - Cifra de César
+
+N: numero de casos de teste.
+Texto codificado e numero de casas que foram deslocadas
+
+Texto decodificado.
+
+
+Transformar Char em inteiro da tabela ASCII e subtrair a base "A",
+ diminuir o numero passado no deslocamento,
+transformar novamente para char.
+
+import java.io.IOException;
+import java.util.Scanner;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int N = scanner.nextInt();
+        scanner.nextLine(); 
+
+        for (int i = 0; i < N; i++) {
+
+            String texto = scanner.nextLine(); 
+            int deslocamento = scanner.nextInt(); 
+            scanner.nextLine(); 
+
+            StringBuilder resultado = new StringBuilder();
+
+            for (char c : texto.toCharArray()) {
+                int posicao = c - 'A';
+                int novaPosicao = posicao - deslocamento;
+
+                
+                while (novaPosicao < 0) {
+                    novaPosicao += 26;
+                }
+
+                char novoCaractere = (char) (novaPosicao + 'A');
+                resultado.append(novoCaractere);
+            }
+
+            System.out.println(resultado);
+        }
+
+        scanner.close();
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+OBS: ESTA RESOLUÇÃO NÃO ESTA OTIMIZADA EM QUESTÃO DE TEMPO DE EXECUÇÃO SERÁ REFATORADA EM REVISÕES POSTERIORES.
