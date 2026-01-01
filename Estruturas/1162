@@ -1,0 +1,54 @@
+1162 - Organizador de vagões
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+        int casos = sc.nextInt();
+        
+        for(int y = 0; y < casos; y++){
+            int N = sc.nextInt();
+            int[] arr = new int[N];
+
+            for(int i = 0; i < N; i++){
+                arr[i] = sc.nextInt();
+            }
+
+            int resultado = BubbleSort.ordenar(arr);
+
+            System.out.println("Optimal train swapping takes " + resultado + " swaps.");
+        }
+
+        sc.close();
+    }
+
+    public static class BubbleSort {
+        public static int ordenar(int[] arr){
+            int trocas = 0;
+            for(int i = arr.length - 1; i > 0; i--){
+                boolean mudou = false;
+                for(int j = 0; j < i; j++){
+                    if(arr[j] > arr[j + 1]){
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        trocas++;
+                        mudou = true;
+                    }
+                }
+                if(!mudou){
+                    break;
+                }
+            }
+            return trocas;
+        }
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
