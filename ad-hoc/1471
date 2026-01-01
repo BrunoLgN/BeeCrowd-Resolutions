@@ -1,0 +1,55 @@
+1471 - Mergulho
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collections;
+
+ 
+import java.util.Scanner;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+         Scanner scanner = new Scanner(System.in);
+        
+        while(scanner.hasNext()){
+       int N = scanner.nextInt();
+        int R = scanner.nextInt();
+        
+        HashSet<Integer> voltouSet = new HashSet<>();
+        
+        for(int i = 0; i < R; i++){
+            int x = scanner.nextInt();
+            voltouSet.add(x);
+        }
+        
+        HashSet<Integer> naoVoltouSet = new HashSet<>();
+
+        for(int i = 1; i <= N; i++){
+            if (!voltouSet.contains(i)) {
+                naoVoltouSet.add(i);
+            }
+
+        }
+        
+        ArrayList<Integer> lista = new ArrayList<>(naoVoltouSet);
+
+        if(voltouSet.size() == N){
+            System.out.println("*");
+        }else{
+            Collections.sort(lista);
+            for(Integer p : lista){
+                System.out.println(p);
+            }
+        }
+        
+       
+/////////////////////////////////////////////////////////////////////////////////////
+        }
+  scanner.close();
+    }
+ 
+}
